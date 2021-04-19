@@ -60,7 +60,7 @@ class SplashPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(17),
                       ),
                       child: Text(
-                        'Explore Low',
+                        'Explore Now',
                         style: whiteTextStyle.copyWith(
                           fontSize: 14,
                         ),
