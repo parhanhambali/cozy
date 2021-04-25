@@ -46,30 +46,30 @@ class SplashPage extends StatelessWidget {
                     'Stop membuang banyak waktu\npada tempat yang tidak habitable',
                     style: greyTextStyle.copyWith(
                       fontSize: 14,
-                    ),
+                    ), 
                   ),
                   SizedBox(
                   height: 20,
                   ),
                   Container(
-                    width: 180,
+                    width: 180, 
                     height: 40,
-                    child: RaisedButton(
+                    child: RaisedButton( 
                       onPressed: (){
                         Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => HomePage(),
+                            builder: (context) => HomePage(),
                           ),
                         );
                       },
                       color: purpleColor,
-                      shape: RoundedRectangleBorder(
+                      shape: RoundedRectangleBorder (
                         borderRadius: BorderRadius.circular(17),
                       ),
                       child: Text(
                         'Explore Now',
                         style: whiteTextStyle.copyWith(
                           fontSize: 14,
-                        ),
+                        ), 
                       ),
                     ),
                   ),

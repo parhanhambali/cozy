@@ -1,6 +1,7 @@
 import 'package:bwa_cozy/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:bwa_cozy/widgets/city_card.dart';
+import 'package:bwa_cozy/models/city.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -54,9 +55,40 @@ class HomePage extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    CityCard(),
-                    CityCard(),
-                    CityCard(),
+                    SizedBox(
+                      width: 24,
+                    ),
+                    CityCard(
+                      City(
+                      id: 1,
+                      name: 'Jakarta',
+                      imageUrl: 'assets/images/city1.png',
+                      )
+                    ) ,
+                    SizedBox(
+                      width: 20,
+                    ),
+                    CityCard(
+                      City(
+                        id: 2,
+                        name: 'Bandung',
+                        imageUrl: 'assets/images/city2.png',
+                        isPopular: true,
+                      )
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    CityCard(
+                      City(
+                        id: 3,
+                        name: 'Surabaya',
+                        imageUrl: 'assets/images/city3.png',
+                      )
+                    ),
+                    SizedBox(
+                      width: 24,
+                    ),
                   ],
                 ),
               ),
