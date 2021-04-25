@@ -1,6 +1,7 @@
 import 'package:bwa_cozy/models/space.dart';
 import 'package:bwa_cozy/theme.dart';
 import 'package:bwa_cozy/widgets/space_cart.dart';
+import 'package:bwa_cozy/widgets/tips_card.dart';
 import 'package:flutter/material.dart';
 import 'package:bwa_cozy/widgets/city_card.dart';
 import 'package:bwa_cozy/models/city.dart';
@@ -158,6 +159,36 @@ class HomePage extends StatelessWidget {
                         rating: 3,
                       ),
                     ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              // NOTES : TIPS &  GUIDENCE
+              Padding(
+                padding: EdgeInsets.only(left: edge),
+                child: Text(
+                  'Tips & Guidance',
+                  style: regularTextStyle.copyWith(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: edge,
+                ),
+                child: Column(
+                  children: [
+                    TipsCard(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TipsCard(),
                   ],
                 ),
               ),
