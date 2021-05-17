@@ -1,7 +1,9 @@
+import 'package:bwa_cozy/pages/error_page.dart';
 import 'package:bwa_cozy/theme.dart';
 import 'package:bwa_cozy/widgets/facility_item.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:bwa_cozy/pages/error_page.dart';
 
 class DetailPage extends StatelessWidget {
   @override
@@ -10,7 +12,13 @@ class DetailPage extends StatelessWidget {
       if (await canLaunch(url)) {
         launch(url);
       } else {
-        throw (url);
+        // throw (url);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ErrorPage(),
+          ),
+        );
       }
     }
 
@@ -242,8 +250,10 @@ class DetailPage extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                launchUrl(
-                                    'https://goo.gl/maps/M2ExhurbvND84To47');
+                                // launchUrl(
+                                //     'https://goo.gl/maps/M2ExhurbvND84To47');
+
+                                launchUrl('Asal');
                               },
                               child: Image.asset(
                                 'assets/images/btn_maps.png',
