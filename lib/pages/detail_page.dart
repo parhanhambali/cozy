@@ -1,10 +1,19 @@
 import 'package:bwa_cozy/theme.dart';
 import 'package:bwa_cozy/widgets/facility_item.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class DetailPage extends StatelessWidget { 
+class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    launchUrl(String url) async {
+      if (await canLaunch(url)) {
+        launch(url);
+      } else {
+        throw (url);
+      }
+    }
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
@@ -231,9 +240,15 @@ class DetailPage extends StatelessWidget {
                               'Jln. Menuju Kemenangan No. 10\nBandung',
                               style: greyTextStyle,
                             ),
-                            Image.asset(
-                              'assets/images/btn_maps.png',
-                              width: 40,
+                            InkWell(
+                              onTap: () {
+                                launchUrl(
+                                    'https://goo.gl/maps/M2ExhurbvND84To47');
+                              },
+                              child: Image.asset(
+                                'assets/images/btn_maps.png',
+                                width: 40,
+                              ),
                             ),
                           ],
                         ),
@@ -248,17 +263,19 @@ class DetailPage extends StatelessWidget {
                         height: 50,
                         width: MediaQuery.of(context).size.width - (2 * edge),
                         child: RaisedButton(
-                        onPressed: () {},
-                        color: purpleColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(17),
-                        ),
-                        child: Text(
-                          'Book Now',
-                          style: whiteTextStyle.copyWith(
-                            fontSize: 18,
+                          onPressed: () {
+                            launchUrl('tel:+6289656132580');
+                          },
+                          color: purpleColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(17),
                           ),
-                        ),
+                          child: Text(
+                            'Book Now',
+                            style: whiteTextStyle.copyWith(
+                              fontSize: 18,
+                            ),
+                          ),
                         ),
                       ),
                     ],
@@ -276,7 +293,7 @@ class DetailPage extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [   
+                children: [
                   InkWell(
                     onTap: () {
                       Navigator.pop(context);
