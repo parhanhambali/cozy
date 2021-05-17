@@ -3,7 +3,7 @@ import 'package:bwa_cozy/theme.dart';
 import 'package:bwa_cozy/widgets/facility_item.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:bwa_cozy/pages/error_page.dart';
+
 
 class DetailPage extends StatelessWidget {
   @override

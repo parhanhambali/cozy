@@ -14,7 +14,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var spaceProvider = Provider.of<SpaceProvider>(context);
-    spaceProvider.getRecomendedSpaces();
 
     return Scaffold(
       backgroundColor: whiteColor,
@@ -119,48 +118,30 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                   horizontal: edge,
                 ),
-                child: Column(
-                  children: [
-                    SpaceCard(
-                      Space(
-                        id: 1,
-                        name: 'Kuretakeso Hott',
-                        imageUrl: 'assets/images/space1.png',
-                        price: 52,
-                        city: 'Bandung',
-                        country: 'Germany',
-                        rating: 4,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    SpaceCard(
-                      Space(
-                        id: 2,
-                        name: 'Roemah Nenek',
-                        imageUrl: 'assets/images/space2.png',
-                        price: 11,
-                        city: 'Seattle',
-                        country: 'Bogor',
-                        rating: 5,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    SpaceCard(
-                      Space(
-                        id: 3,
-                        name: 'Darling How',
-                        imageUrl: 'assets/images/space3.png',
-                        price: 20,
-                        city: 'Jakarta',
-                        country: 'Indonesia',
-                        rating: 3,
-                      ),
-                    ),
-                  ],
+                child: FutureBuilder(
+                  future: spaceProvider.getRecomendedSpaces(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      List<Space> data = snapshot.data;
+
+                      int index = 0; 
+
+                      return Column(
+                        children: data.map((item){
+                          index++;
+                          return Container(
+                            margin: EdgeInsets.only(
+                              top: index == 1 ? 0 : 30,
+                            ),
+                            child: SpaceCard(item),
+                          );
+                        }).toList(),
+                      );
+                    }
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
                 ),
               ),
               SizedBox(

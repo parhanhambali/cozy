@@ -1,6 +1,5 @@
 import 'package:bwa_cozy/pages/splash_page.dart';
 import 'package:bwa_cozy/providers/space_provider.dart';
-import 'package:bwa_cozy/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
