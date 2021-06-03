@@ -3,6 +3,7 @@ import 'package:bwa_cozy/theme.dart';
 import 'package:bwa_cozy/models/space.dart';
 import 'package:flutter/material.dart';
 
+
 class SpaceCard extends StatelessWidget {
   final Space space;
 
@@ -18,13 +19,13 @@ class SpaceCard extends StatelessWidget {
               builder: (context) => DetailPage(),
             ));
       },
-      child: Row(
+      child: Row(    
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(18),
             child: Container(
-              width: 130,
-              height: 110,
+              width: 116,
+              height: 113,
               child: Stack(
                 children: [
                   Image.network(
